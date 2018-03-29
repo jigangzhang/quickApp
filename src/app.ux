@@ -1,0 +1,26 @@
+<script>
+  /**
+   * 应用级别的配置，供所有页面公用
+   */
+  import util from './util'
+
+  export default {
+    onCreate() {
+    	console.info('Application onCreate')
+    	this.$def.log(this.$def.data.title)
+    },
+    onDestroy() {
+    	console.info('Application onDestroy')
+    },
+    showMenu: util.showMenu,
+    createShortcut: util.createShortcut,
+    //暴露给所用页面的数据，访问方式--this.$app.$def.data  --this.$app.data 两种调用方式的不同之处在于是否保存用之前赋予的全局变量的值(第二种保存有值)
+    data: {
+    	title: '快应用'
+    },
+    //暴露给所用页面的方法，访问方式--this.$app.$def.log('msg')
+    log(message) {
+    	console.info(message)
+    }
+  }
+</script>
