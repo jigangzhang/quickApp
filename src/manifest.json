@@ -20,7 +20,7 @@
     "entry": "Demo",
     "pages": {
       "Demo": {
-        "component": "index"
+        "component": "test"
       },
       "DemoDetail": {
         "component": "index"

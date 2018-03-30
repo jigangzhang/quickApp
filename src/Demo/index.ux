@@ -4,6 +4,7 @@
     <text class="title">欢迎打开{{title}}</text>
     <!-- 点击跳转详情页 -->
     <input class="btn" type="button" value="跳转到详情页" onclick="routeDetail">
+    <text id="content">welcome! {{content}}</text>
   </div>
 </template>
 
@@ -28,6 +29,11 @@
     font-size: 30px;
     color: #ffffff;
   }
+
+  #content {
+    color: #12CB35;
+    font-size: 50px;
+  }
 </style>
 
 <script>
@@ -35,7 +41,8 @@
 
   export default {
     data: {
-      title: '示例页面'
+      title: '示例页面',
+      content: 'this is content'
     },
     routeDetail () {
       // 跳转到应用内的某个页面，router用法详见：文档->接口->页面路由
@@ -43,6 +50,6 @@
         uri: '/DemoDetail'
       })
     }
-    
+
   }
 </script>

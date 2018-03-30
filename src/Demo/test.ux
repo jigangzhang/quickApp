@@ -1,0 +1,57 @@
+<template>
+  <div class="tutorial-page">
+
+    <!-- 方式1：默认$item代表数组中的元素, $idx代表数组中的索引 -->
+    <div class="tutorial-row" for="{{list}}">
+      <text>{{$idx}}.{{$item.name}}</text>
+    </div>
+
+    <!-- 方式2：自定义元素变量名称 -->
+    <div class="tutorial-row" for="value in list">
+      <text>{{$idx}}.{{value.name}}</text>
+    </div>
+
+    <!-- 方式3：自定义元素、索引的变量名称 -->
+    <div class="tutorial-row" for="(personIndex, personItem) in list">
+      <text>{{personIndex}}.{{personItem.name}}</text>
+    </div>
+    <div class="text-test">
+      <text onClick="onTextShow">显示隐藏</text>
+      <text show="{{showText}}">I am showing!</text>
+    </div>
+  </div>
+</template>
+
+<style>
+  .tutorial-page {
+    flex-direction: column;
+  }
+  .tutorial-row {
+      width: 85%;
+      margin-top: 10px;
+      margin-bottom: 10px;
+  }
+  .text-test {
+    flex-direction: column;
+    margin-left: 50px;
+  }
+  .text-test > text {
+    color: #12CB35;
+    font-size: 50px;
+  }
+</style>
+
+<script>
+  export default {
+    onInit () {
+      this.$page.setTitleBar({ text: '指令 for, show' })
+    },
+    data: {
+      showText: false,
+      list: [{name: 'aa'}, { name: 'bb' }]
+    },
+    onTextShow () {
+        this.showText = !this.showText;
+    }
+  }
+</script>
